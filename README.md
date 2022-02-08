@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app uses React and Node to utilize a weather API to display weather data for a given city.
 
 ## Available Scripts
 
