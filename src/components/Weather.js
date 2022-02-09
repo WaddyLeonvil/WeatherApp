@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Weather.css';
+import Card from './Card';
 
 function Weather({weatherData}) {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -10,7 +11,7 @@ function Weather({weatherData}) {
         e.preventDefault();
         setCity(document.getElementById('city').value);
     }
-
+    
     useEffect(() => {
         fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
@@ -35,10 +36,7 @@ function Weather({weatherData}) {
                     <input type='text' id='city' required />
                     <input type='submit' />
                 </form>
-                Name: {data.name}, <br />
-                Timezone: {data.timezone}, <br />
-                Country: {data.sys.country}, <br />
-                Temperature = {Math.round(((data.main.temp - 273.15) * 9/5 + 32) * 100) / 100}°F
+                <Card data={data} />
             </div>
         )
     }
