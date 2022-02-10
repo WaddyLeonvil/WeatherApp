@@ -14,7 +14,7 @@ function Weather({weatherData}) {
     
     useEffect(() => {
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
                 .then((res) => res.json())
                 .then((json) => {
                     setData(json);
@@ -33,7 +33,7 @@ function Weather({weatherData}) {
         return (
             <div>
                 <form onSubmit={handleSubmit} autocomplete='off'>
-                    <input type='text' id='city' required />
+                    <input type='text' id='city' placeholder='Enter City Name' required />
                     <input type='submit' />
                 </form>
                 <Card data={data} />
