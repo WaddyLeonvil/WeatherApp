@@ -1,6 +1,6 @@
 # Weather App
 
-This app uses React and Node to utilize a weather API to display weather data for a given city.
+This app uses React and Node to utilize a weather API to display weather data (5-day forecast) for a given city.
 
 ## Available Scripts
 
