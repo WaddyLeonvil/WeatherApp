@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './Weather.css';
 import Card from './Card';
+import Searchbar from './Searchbar';
 
 function Weather({weatherData}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
+    const [cityNames, setCityNames] = useState([]);
     const [city, setCity] = useState('Toronto');
 
     const handleSubmit = (e) => {
@@ -20,7 +22,18 @@ function Weather({weatherData}) {
                     setData(json);
                     setIsLoaded(true);
                 });
-        }, [city]);
+    }, [city]);
+    useEffect(() => {
+        fetch(
+            `http://api.openweathermap.org/geo/1.0/direct?q=Miami&limit=5&appid=${process.env.REACT_APP_API_KEY}`)
+                .then((res) => res.json())
+                .then((json) => {
+                    setCityNames(json);
+                    setIsLoaded(true);
+                });
+    }, [city]);
+
+    
 
     if (!isLoaded) {
         return (
@@ -32,11 +45,12 @@ function Weather({weatherData}) {
     else {
         return (
             <div>
-                <form onSubmit={handleSubmit} autocomplete='off'>
+                <Searchbar placeholder='Enter City Name' data={cityNames}/>
+                {/* <form onSubmit={handleSubmit} autocomplete='off'>
                     <input type='text' id='city' placeholder='Enter City Name' required />
                     <input type='submit' />
                 </form>
-                <Card data={data} />
+                <Card data={data} /> */}
             </div>
         )
     }
