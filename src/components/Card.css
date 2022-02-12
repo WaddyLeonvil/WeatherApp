@@ -1,14 +1,18 @@
 .weather-card-wrapper {
     position: relative;
+    top: 300px;
+    width: 90vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .weather-card {
-    width: 500px;
+    width: 275px;
     height: 250px;
-    background-color: rgb(0, 0, 129);
+    background-color: rgb(35, 35, 214);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
