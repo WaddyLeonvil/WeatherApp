@@ -1,5 +1,9 @@
 import React from 'react';
-import './Card.css'
+import './Card.css';
+import '../css/weather-icons-wind.css';
+import '../css/weather-icons-wind.min.css';
+import '../css/weather-icons.css';
+import '../css/weather-icons.min.css';
 
 function Card({data}) {
 
@@ -22,9 +26,16 @@ function Card({data}) {
                 if (index % 8 === 0) {
                     return(
                         <div key={index / 5} className='weather-card'>
-                            {getDayName(new Date(data.list[index].dt * 1000).getDay())} <br />
-                            {new Date(data.list[index].dt * 1000).toLocaleDateString('en-US')} <br />
-                            {Math.round(((data.list[index].main.temp_min - 273.15) * 9/5 + 32))}°F <br />
+                            <div className="day">
+                                {getDayName(new Date(data.list[index].dt * 1000).getDay())}
+                            </div>
+                            <div className="date">
+                                {new Date(data.list[index].dt * 1000).toLocaleDateString('en-US')}
+                            </div>
+                            <i className='wi wi-day-sunny wi-fw'></i>
+                            <div className="temperature">
+                                {Math.round(((data.list[index].main.temp_min - 273.15) * 9/5 + 32))}°F
+                            </div>
                         </div>
                     )
                }

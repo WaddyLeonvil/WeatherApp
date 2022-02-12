@@ -15,6 +15,31 @@
     background-color: rgb(35, 35, 214);
     border-radius: 1rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+.weather-card i {
+    position: absolute;
+    top: 100px;
+    
+}
+
+.wi-fw {
+    width: 4em;
+}
+
+.day {
+    position: relative;
+    top: 5px;
+}
+
+.date {
+    position: relative;
+}
+
+.temperature {
+    position: absolute;
+    bottom: 5px;
+    color: #dbdbdb;
 }
