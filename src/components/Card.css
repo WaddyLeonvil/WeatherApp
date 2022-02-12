@@ -1,3 +1,10 @@
+.weather-card-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .weather-card {
     width: 500px;
     height: 250px;

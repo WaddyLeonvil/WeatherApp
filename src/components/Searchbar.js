@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Searchbar.css';
 
-function Searchbar({placeholder, data}) {
+function Searchbar({placeholder, data, setCity, setState}) {
     const [filteredData, setFilteredData] = useState([]);
 
     const handleChange = (event) => {
@@ -18,6 +18,11 @@ function Searchbar({placeholder, data}) {
         }
     }
 
+    const handleClick = (value) => {
+        setCity(value.name);
+        setState(value.state);
+    }
+
     return (
         <div className='search'>
             <div className="search-inputs">
@@ -30,7 +35,7 @@ function Searchbar({placeholder, data}) {
             <div className="data-result">
                 {filteredData.slice(0, 15).map((value, key) => {
                     return (
-                        <div className='data-item'>
+                        <div className='data-item' onClick={handleClick(value)}>
                             <p>{value.name},{value.state ? " " + value.state + "," : ""} {value.country}</p>
                         </div>
                     )

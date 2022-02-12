@@ -1,56 +1,45 @@
 import React, {useEffect, useState} from 'react';
 import './Weather.css';
 import Card from './Card';
-import Searchbar from './Searchbar';
 
 function Weather({weatherData}) {
+    const [lat, setLat] = useState([]);
+    const [lon, setLon] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
-    const [cityNames, setCityNames] = useState([]);
-    const [city, setCity] = useState('Toronto');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setCity(document.getElementById('city').value);
-    }
     
     useEffect(() => {
-        fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
-                .then((res) => res.json())
-                .then((json) => {
-                    setData(json);
-                    setIsLoaded(true);
-                });
-    }, [city]);
-    useEffect(() => {
-        fetch(
-            `http://api.openweathermap.org/geo/1.0/direct?q=Miami&limit=5&appid=${process.env.REACT_APP_API_KEY}`)
-                .then((res) => res.json())
-                .then((json) => {
-                    setCityNames(json);
-                    setIsLoaded(true);
-                });
-    }, [city]);
+        const fetchData = async () => {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                setLat(position.coords.latitude);
+                setLon(position.coords.longitude);
+            });
+
+            await fetch(
+                `https://api.openweathermap.org/data/2.5/forecast?lat=26.5&lon=-80.1&appid=${process.env.REACT_APP_API_KEY}`)
+                    .then((res) => res.json())
+                    .then((json) => {
+                        setData(json);
+                        setIsLoaded(true);
+                    });
+        };
+        fetchData();
+    }, [lat, lon]);
 
     
 
     if (!isLoaded) {
         return (
             <div>
-                <h1>Loading...</h1>
+                <h1>Loading data...</h1>
             </div>
         )
     }
     else {
         return (
-            <div>
-                <Searchbar placeholder='Enter City Name' data={cityNames}/>
-                {/* <form onSubmit={handleSubmit} autocomplete='off'>
-                    <input type='text' id='city' placeholder='Enter City Name' required />
-                    <input type='submit' />
-                </form>
-                <Card data={data} /> */}
+            <div className='weather'>
+                <Card data={data} />
             </div>
         )
     }
