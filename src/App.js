@@ -3,13 +3,34 @@ import { useEffect, useState } from "react";
 import Weather from './components/Weather';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Weather />
-      </header>
-    </div>
-  );
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      setLat(position.coords.latitude);
+      setLon(position.coords.longitude);
+    });
+  }, [lat, lon])
+
+  if (!lat || !lon) {
+    return (
+      <div className="App">
+        <div className="App-header">
+          Loading data...
+        </div>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Weather lat={lat} lon={lon}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
