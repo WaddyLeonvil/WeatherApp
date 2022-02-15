@@ -21,7 +21,7 @@ function Card({data}) {
             {data.list.map((array, index) => {
                 if (index % 8 === 0) {
                     return(
-                        <div key={index / 5} className='weather-card'>
+                        <div key={index / 5} className={index === 0 ? 'weather-card today' : 'weather-card'}>
                             <div className="day">
                                 {getDayName(new Date(array.dt * 1000).getDay())}
                             </div>
