@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from "react";
 import Weather from './components/Weather';
+import Topbar from './components/Topbar';
 
 function App() {
   const [lat, setLat] = useState();
@@ -26,6 +27,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
+          <Topbar />
           <Weather lat={lat} lon={lon}/>
         </header>
       </div>
