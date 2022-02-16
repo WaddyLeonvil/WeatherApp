@@ -1,12 +1,12 @@
 import React from 'react';
 import './Topbar.css';
 
-function Topbar() {
+function Topbar({handleChange}) {
     return (
         <div className='topbar'>
-            <p>5-Day Forecast</p>
-            <p>Today's Weather</p>
-            <p>Three</p>
+            <button onClick={() => {handleChange('5day')}}>5-Day Forecast</button>
+            <button onClick={() => {handleChange('today')}}>Today's Weather</button>
+            <button onClick={() => {handleChange('today')}}>Three</button>
         </div>
     )
 }

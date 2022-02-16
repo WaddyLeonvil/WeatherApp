@@ -6,6 +6,9 @@ import Topbar from './components/Topbar';
 function App() {
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
+  const [option, setOption] = useState('5day');
+
+  
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -27,8 +30,9 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <Topbar />
-          <Weather lat={lat} lon={lon}/>
+          <Topbar handleChange={setOption} />
+          {option === '5day' && <Weather lat={lat} lon={lon} />}
+          {option === 'today' && null}
         </header>
       </div>
     );

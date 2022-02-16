@@ -32,9 +32,13 @@ function Weather({lat, lon}) {
     else {
         return (
             <div className='weather'>
-                <div className="location-name">
-                    {data.city.name},{data.city.state ? " " + data.city.state + "," : ""} {data.city.country}
+                <div className="trapezoid">
+                    <div className="location-name">
+                        {data.city.name},{data.city.state ? " " + data.city.state + "," : ""} {data.city.country}
+                    </div>
                 </div>
+                
+                
                 <Card data={data} />
             </div>
         )

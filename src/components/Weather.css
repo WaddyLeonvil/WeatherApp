@@ -9,6 +9,19 @@
 
 .location-name {
     position: absolute;
-    top: 100px;
+    top: -90px;
     font-size: 2em;
+}
+
+.trapezoid {
+    position: fixed;
+    top: 80px;
+	border-top: 100px solid rgb(0, 26, 255);
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 0;
+	width: 750px;
 }
