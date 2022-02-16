@@ -3,7 +3,7 @@
     width: 100vw;
     height: 80px;
     top: 0;
-    
+    border-bottom: solid 2px black;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -36,4 +36,8 @@
 
 .topbar button:active {
     background-color: rgb(89, 89, 255);
+}
+
+.topbar .active {
+    background-color: rgb(57, 57, 245);
 }

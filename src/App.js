@@ -30,7 +30,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <Topbar handleChange={setOption} />
+          <Topbar option={option} handleChange={setOption} />
           {option === '5day' && <Weather lat={lat} lon={lon} />}
           {option === 'today' && null}
         </header>
