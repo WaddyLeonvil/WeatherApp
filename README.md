@@ -1,6 +1,6 @@
 # Weather App
 
-This app uses React and Node to utilize a weather API to display weather data (5-day forecast) for the location the user is currently in.
+This app uses React and Node to utilize a weather API to display weather data, including a 5-day forecast, for the location the user is currently in, as well as locations that they can search up.
 
 ## Available Scripts
 
