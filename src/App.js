@@ -1,12 +1,13 @@
 import './App.css';
 import { useEffect, useState } from "react";
 import Weather from './components/Weather';
+import Forecast from './components/Forecast';
 import Topbar from './components/Topbar';
 
 function App() {
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
-  const [option, setOption] = useState('5day');
+  const [option, setOption] = useState('today');
 
   
 
@@ -31,8 +32,8 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Topbar option={option} handleChange={setOption} />
-          {option === '5day' && <Weather lat={lat} lon={lon} />}
-          {option === 'today' && null}
+          {option === '5day' && <Forecast lat={lat} lon={lon} />}
+          {option === 'today' && <Weather lat={lat} lon={lon} />}
         </header>
       </div>
     );
