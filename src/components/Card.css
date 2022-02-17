@@ -1,7 +1,7 @@
 .weather-card-wrapper {
     position: relative;
     top: 100px;
-    width: 90vw;
+    width: 65vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,9 +11,9 @@
 
 .weather-card {
     position: relative;
-    width: 275px;
+    width: 200px;
     height: 250px;
-    background-color: rgb(21, 21, 180);
+    background-color: rgba(88, 88, 88, 0.9);
     border-radius: 1rem;
     margin-bottom: 5px;
     display: flex;
@@ -22,14 +22,14 @@
 }
 
 .today {
-    background-color: rgb(57, 57, 245);
+    background-color: rgba(138, 138, 138, 0.85);
 }
 
 .weather-card img {
     position: relative;
     width: 140px;
     height: auto;
-    filter: drop-shadow(0px 0px 4px #c2c2c2);
+    filter: drop-shadow(0px 0px 7px #c2c2c2);
 }
 
 .wi-fw {

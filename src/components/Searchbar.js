@@ -36,7 +36,7 @@ function Searchbar({placeholder, data, setCity, setState}) {
                 {filteredData.slice(0, 15).map((value, key) => {
                     return (
                         <div className='data-item' onClick={handleClick(value)}>
-                            <p>{value.name},{value.state ? " " + value.state + "," : ""} {value.country}</p>
+                            {/* <p>{value.name},{value.state ? " " + value.state + "," : ""} {value.country}</p> */}
                         </div>
                     )
                 })}

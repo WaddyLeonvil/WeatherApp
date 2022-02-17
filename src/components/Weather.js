@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Card from './Card';
 import './Weather.css';
+import Arrow from '../images/down-arrow.png';
+import Searchbar from './Searchbar';
 
 function Weather({lat, lon}) {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -53,6 +55,7 @@ function Weather({lat, lon}) {
     else {
         return (
             <div className='weather'>
+                <Searchbar />
                 <p>{data.name}</p>
                 <div className="weather-section">
                     <div className="weather-section-left">
@@ -76,7 +79,13 @@ function Weather({lat, lon}) {
                         </div>
                     </div> */}
                 </div>
-                <Card data={data2} />
+                <div className="img-container">
+                    <img src={Arrow} alt="" className='arrow' />
+                </div>
+                <div className="forecast-section">
+                    <Card data={data2} />
+                </div>
+            
             </div>
         )
     }
