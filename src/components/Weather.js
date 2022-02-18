@@ -9,6 +9,7 @@ function Weather({lat, lon}) {
     const [isLoaded2, setIsLoaded2] = useState(false);
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
+    const [expanded, setExpanded] = useState(false);
 
     const getDayName = (num) => {
         switch(num) {
@@ -21,6 +22,10 @@ function Weather({lat, lon}) {
             case 6: return 'Saturday';
             default: return 'Sunday';
         }
+    }
+
+    const handleToggle = () => {
+        setExpanded(!expanded);
     }
 
     useEffect(() => {
@@ -55,9 +60,11 @@ function Weather({lat, lon}) {
     else {
         return (
             <div className='weather'>
-                <Searchbar />
-                <p>{data.name}</p>
-                <div className="weather-section">
+                <div className={expanded ? "searchbar-wrapper extended": "searchbar-wrapper"}>
+                    <Searchbar />
+                </div>
+                <p className={expanded ? "city-name expanded" : "city-name"}>{data.name}</p>
+                <div className={expanded ? "weather-section expanded" : "weather-section"}>
                     <div className="weather-section-left">
                         <div className="weather-section-temperature">
                             {Math.round(((data.main.temp - 273.15) * 9/5 + 32))}°F
@@ -80,7 +87,7 @@ function Weather({lat, lon}) {
                     </div> */}
                 </div>
                 <div className="img-container">
-                    <img src={Arrow} alt="" className='arrow' />
+                    <img src={Arrow} alt="" className={expanded ? 'arrow expanded' : 'arrow'} onClick={handleToggle} />
                 </div>
                 <div className="forecast-section">
                     <Card data={data2} />

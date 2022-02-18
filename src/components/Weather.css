@@ -1,4 +1,5 @@
 .weather {
+    position: relative;
     max-width: 100vw;
     max-height: 100vh;
     display: flex;
@@ -8,12 +9,29 @@
     background-color: transparent;
 }
 
+.searchbar-wrapper {
+    top: 50px;
+    width: 350px;
+    position: fixed;
+    left: 50vw;
+    margin-left: -175px;
+    transition: all 1s;
+}
+
+.searchbar-wrapper.extended {
+    top: -150px;
+}
+
 .weather .arrow {
     position: relative;
     width: 50px;
     height: 50px;
     top: 50px;
-    transition: all 0.5s;
+    transition: all 1s;
+}
+
+.weather .arrow.expanded {
+    transform: rotate(180deg);
 }
 
 .img-container {
@@ -21,20 +39,38 @@
     height: 50px;
 }
 
-.active {
-    transform: rotate(180deg);
-    transition: all 0.5s;
+.city-name {
+    position: relative;
+    top: 0px;
+    transition: all 1s;
+}
+
+.city-name.expanded {
+    top: -140px;
 }
 
 .weather-section {
+    position: relative;
     width: 950px;
     height: 125px;
     background-color: rgba(114, 114, 114, 0.35);
     border-radius: 8px;
     padding: 0px 10px;
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    transition: all 1s;
+}
+
+
+.weather-section.expanded {
+    height: 350px;
+    transition: all 1s;
+}
+
+.weather-section.expanded {
+    margin-top: -150px;
 }
 
 .weather-section img {

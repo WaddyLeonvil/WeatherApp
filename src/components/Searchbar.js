@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Searchbar.css';
 
-function Searchbar({placeholder, data, setCity, setState}) {
+function Searchbar({data, setCity, setState}) {
     const [filteredData, setFilteredData] = useState([]);
 
     const handleChange = (event) => {
@@ -26,7 +26,7 @@ function Searchbar({placeholder, data, setCity, setState}) {
     return (
         <div className='search'>
             <div className="search-inputs">
-                <input type='text' placeholder={placeholder} onChange={handleChange}/>
+                <input type='text' placeholder='Enter City Here' onChange={handleChange}/>
                 <div className="search-icon">
 
                 </div>
