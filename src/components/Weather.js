@@ -24,6 +24,10 @@ function Weather({lat, lon}) {
         }
     }
 
+    const toFahrenheit = (num) => {
+        return Math.round(((num - 273.15) * 9/5 + 32));
+    }
+
     const handleToggle = () => {
         setExpanded(!expanded);
     }
@@ -60,31 +64,28 @@ function Weather({lat, lon}) {
     else {
         return (
             <div className='weather'>
-                <div className={expanded ? "searchbar-wrapper extended": "searchbar-wrapper"}>
+                <div className={expanded ? "searchbar-wrapper expanded": "searchbar-wrapper"}>
                     <Searchbar />
                 </div>
                 <p className={expanded ? "city-name expanded" : "city-name"}>{data.name}</p>
                 <div className={expanded ? "weather-section expanded" : "weather-section"}>
                     <div className="weather-section-left">
-                        <div className="weather-section-temperature">
-                            {Math.round(((data.main.temp - 273.15) * 9/5 + 32))}°F
+                        <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />
+                        <div className={expanded ? "weather-section-temperature expanded" : "weather-section-temperature"}>
+                            {toFahrenheit(data.main.temp)}°F
                         </div>
                     </div>
-                    <div className='weather-section-right'>
+                    <div className={expanded ? 'weather-section-right expanded' : 'weather-section-right'}>
                         <div className="weather-section-bottom-center">
                             Clouds: {data.clouds.all}% <br />
                             Humidity: {data.main.humidity}% <br />
                             Wind: {data.wind.speed} m/s <br />
+                            <div className={expanded ? 'extra-right expanded' : 'extra-right'}>
+                                Max Temp: {toFahrenheit(data.main.temp_max)} <br />
+                                Min Temp: {toFahrenheit(data.main.temp_min)} <br />
+                            </div>
                         </div>
                     </div>
-                    {/* <div className="weather-section-right">
-                        <div className="city-name">
-                            {data.name}
-                        </div>
-                        <div className="day-name">
-                            {getDayName(new Date(data.dt * 1000).getDay())}
-                        </div>
-                    </div> */}
                 </div>
                 <div className="img-container">
                     <img src={Arrow} alt="" className={expanded ? 'arrow expanded' : 'arrow'} onClick={handleToggle} />
