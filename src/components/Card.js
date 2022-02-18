@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-function Card({data}) {
+function Card({data, fahrenheit, toFahrenheit, toCelcius}) {
 
     const getDayName = (num) => {
         switch(num) {
@@ -30,7 +30,7 @@ function Card({data}) {
                             </div>
                             <img src={`http://openweathermap.org/img/wn/${array.weather[0].icon}@2x.png`} alt="" />
                             <div className="temperature">
-                                {Math.round(((data.list[index].main.temp_min - 273.15) * 9/5 + 32))}°F
+                                {fahrenheit ? toFahrenheit(data.list[index].main.temp) + "°F" : toCelcius(data.list[index].main.temp) + "°C"}
                             </div>
                         </div>
                     )

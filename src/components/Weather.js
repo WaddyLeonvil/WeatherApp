@@ -10,22 +10,14 @@ function Weather({lat, lon}) {
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [expanded, setExpanded] = useState(false);
-
-    const getDayName = (num) => {
-        switch(num) {
-            case 0: return 'Sunday';
-            case 1: return 'Monday';
-            case 2: return 'Tuesday';
-            case 3: return 'Wednesday';
-            case 4: return 'Thursday';
-            case 5: return 'Friday';
-            case 6: return 'Saturday';
-            default: return 'Sunday';
-        }
-    }
+    const [fahrenheit, setFahrenheit] = useState(true);
 
     const toFahrenheit = (num) => {
-        return Math.round(((num - 273.15) * 9/5 + 32));
+        return Math.round((num - 273.15) * 9/5 + 32);
+    }
+
+    const toCelcius = (num) => {
+        return Math.round(num - 273.15);
     }
 
     const handleToggle = () => {
@@ -72,7 +64,7 @@ function Weather({lat, lon}) {
                     <div className="weather-section-left">
                         <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />
                         <div className={expanded ? "weather-section-temperature expanded" : "weather-section-temperature"}>
-                            {toFahrenheit(data.main.temp)}°F
+                            {fahrenheit ? toFahrenheit(data.main.temp) + "°F" : toCelcius(data.main.temp) + "°C"}
                         </div>
                     </div>
                     <div className={expanded ? 'weather-section-right expanded' : 'weather-section-right'}>
@@ -81,8 +73,8 @@ function Weather({lat, lon}) {
                             Humidity: {data.main.humidity}% <br />
                             Wind: {data.wind.speed} m/s <br />
                             <div className={expanded ? 'extra-right expanded' : 'extra-right'}>
-                                Max Temp: {toFahrenheit(data.main.temp_max)} <br />
-                                Min Temp: {toFahrenheit(data.main.temp_min)} <br />
+                                Max Temp: {fahrenheit ? toFahrenheit(data.main.temp_max) + "°F" : toCelcius(data.main.temp_max) + "°C"} <br />
+                                Min Temp: {fahrenheit ? toFahrenheit(data.main.temp_min) + "°F" : toCelcius(data.main.temp_min) + "°C"} <br />
                             </div>
                         </div>
                     </div>
@@ -91,7 +83,7 @@ function Weather({lat, lon}) {
                     <img src={Arrow} alt="" className={expanded ? 'arrow expanded' : 'arrow'} onClick={handleToggle} />
                 </div>
                 <div className="forecast-section">
-                    <Card data={data2} />
+                    <Card data={data2} fahrenheit={fahrenheit} toFahrenheit={toFahrenheit} toCelcius={toCelcius} />
                 </div>
             
             </div>
