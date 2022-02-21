@@ -4,7 +4,7 @@ import './Weather.css';
 import Arrow from '../images/down-arrow.png';
 import Searchbar from './Searchbar';
 
-function Weather({lat, lon}) {
+function Weather({lat, lon, setLat, setLon}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [isLoaded2, setIsLoaded2] = useState(false);
     const [data, setData] = useState([]);
@@ -49,6 +49,9 @@ function Weather({lat, lon}) {
     if (!isLoaded || !isLoaded2) {
         return (
             <div>
+                <div className="searchbar-wrapper">
+                <Searchbar setLat={setLat} setLon={setLon} />
+                </div>
                 <h1>Loading data...</h1>
             </div>
         )
@@ -57,9 +60,8 @@ function Weather({lat, lon}) {
         return (
             <div className='weather'>
                 <div className={expanded ? "searchbar-wrapper expanded": "searchbar-wrapper"}>
-                    <Searchbar />
+                    <Searchbar setLat={setLat} setLon={setLon} />
                 </div>
-                <p className={expanded ? "city-name expanded" : "city-name"}>{data.name}</p>
                 <div className={expanded ? "weather-section expanded" : "weather-section"}>
                     <div className="weather-section-left">
                         <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />

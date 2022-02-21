@@ -18,6 +18,10 @@
     font-size: 1.5rem;
 }
 
+.search input[type='submit'] {
+    display: none;
+}
+
 .searchIcon {
     height: 60px;
     width: 50px;

@@ -32,7 +32,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           {option === '5day' && <Forecast lat={lat} lon={lon} />}
-          {option === 'today' && <Weather lat={lat} lon={lon} />}
+          {option === 'today' && <Weather lat={lat} lon={lon} setLat={setLat} setLon={setLon} />}
         </header>
       </div>
     );

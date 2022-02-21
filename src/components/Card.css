@@ -1,7 +1,7 @@
 .weather-card-wrapper {
     position: relative;
     top: 100px;
-    width: 70vw;
+    width: 90vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
