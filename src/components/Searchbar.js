@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Searchbar.css';
 
-function Searchbar({setLat, setLon}) {
+function Searchbar({setLat, setLon, setName}) {
     const [data, setData] = useState();
     const [location, setLocation] = useState("");
     const [value, setValue] = useState("");
@@ -38,6 +38,7 @@ function Searchbar({setLat, setLon}) {
         const setCoords = () => {
             setLat(data.results[0].geometry.lat);
             setLon(data.results[0].geometry.lng);
+            setName(data.results[0].formatted);
         };
         if (data) {
             setCoords();
@@ -55,7 +56,6 @@ function Searchbar({setLat, setLon}) {
 
                 </div>
             </div>
-            {data.results[0].formatted}
         </div>
     )
 }

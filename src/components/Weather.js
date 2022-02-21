@@ -9,6 +9,7 @@ function Weather({lat, lon, setLat, setLon}) {
     const [isLoaded2, setIsLoaded2] = useState(false);
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
+    const [name, setName] = useState("");
     const [expanded, setExpanded] = useState(false);
     const [fahrenheit, setFahrenheit] = useState(true);
 
@@ -60,8 +61,9 @@ function Weather({lat, lon, setLat, setLon}) {
         return (
             <div className='weather'>
                 <div className={expanded ? "searchbar-wrapper expanded": "searchbar-wrapper"}>
-                    <Searchbar setLat={setLat} setLon={setLon} />
+                    <Searchbar setLat={setLat} setLon={setLon} setName={setName} />
                 </div>
+                <p className={expanded ? "city-name expanded" : "city-name"}>{name}</p>
                 <div className={expanded ? "weather-section expanded" : "weather-section"}>
                     <div className="weather-section-left">
                         <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />
