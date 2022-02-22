@@ -25,6 +25,15 @@ function Weather({lat, lon, setLat, setLon}) {
         setExpanded(!expanded);
     }
 
+    const handleButtonToggle = ({target}) => {
+        if (target.id === 'celcius') {
+            setFahrenheit(false);
+        }
+        else {
+            setFahrenheit(true);
+        }
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             await fetch(
@@ -60,10 +69,18 @@ function Weather({lat, lon, setLat, setLon}) {
     else {
         return (
             <div className='weather'>
+                <div className="toggle">
+                    <button className={!fahrenheit ? 'celcius active' : 'celcius'} id='celcius' onClick={handleButtonToggle}>
+                        °C
+                    </button>
+                    <button className={fahrenheit ? 'fahrenheit active' : 'fahrenheit'} id='fahrenheit' onClick={handleButtonToggle}>
+                        °F 
+                    </button>
+                </div>
                 <div className={expanded ? "searchbar-wrapper expanded": "searchbar-wrapper"}>
                     <Searchbar setLat={setLat} setLon={setLon} setName={setName} />
                 </div>
-                <p className={expanded ? "city-name expanded" : "city-name"}>{name}</p>
+                <p className={expanded ? "city-name expanded" : "city-name"}>{name !== "" ? name : "WOO"}</p>
                 <div className={expanded ? "weather-section expanded" : "weather-section"}>
                     <div className="weather-section-left">
                         <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />

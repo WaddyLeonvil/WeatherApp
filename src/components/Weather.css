@@ -9,6 +9,38 @@
     background-color: transparent;
 }
 
+.toggle {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+
+.toggle button {
+    width: 60px;
+    height: 45px;
+    border: solid 1px black;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+button.celcius {
+    border-radius: 0.7rem 0 0 0.7rem;
+}
+
+button.fahrenheit {
+    border-radius: 0 0.7rem 0.7rem 0;
+}
+
+button.active {
+    background-color: aqua;
+}
+
+button:active {
+    background-color: aqua;
+}
+
 .searchbar-wrapper {
     top: 50px;
     width: 350px;
@@ -92,7 +124,7 @@
 }
 
 .weather-section-temperature.expanded {
-    top: 5px;
+    top: 0px;
     font-size: 6rem;
 }
 

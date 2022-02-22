@@ -36,13 +36,17 @@ function Searchbar({setLat, setLon, setName}) {
 
     useEffect(() => {
         const setCoords = () => {
-            setLat(data.results[0].geometry.lat);
-            setLon(data.results[0].geometry.lng);
-            setName(data.results[0].formatted);
+            try {
+                setLat(data.results[0].geometry.lat);
+                setLon(data.results[0].geometry.lng);
+                setName(data.results[0].formatted);
+            }
+            catch (e) {
+                return;
+            }
         };
-        if (data) {
-            setCoords();
-        }
+        console.log(data);
+        setCoords();
     }, [data]);
 
     return (
