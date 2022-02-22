@@ -24,12 +24,9 @@ function Searchbar({setLat, setLon, setName}) {
                     .then((json) => {
                         setData(json);
                         }
-            ).then((data) => {
-                console.log(data);
-            });
+            );
         };
         if (location !== "") {
-            console.log("It gets here");
             fetchData();
         }
     }, [location]);

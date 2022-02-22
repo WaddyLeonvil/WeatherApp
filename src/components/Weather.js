@@ -100,9 +100,9 @@ function Weather({lat, lon, setLat, setLon}) {
                         </div>
                     </div>
                 </div>
-                <div className="img-container">
+                {/* <div className="img-container">
                     <img src={Arrow} alt="" className={expanded ? 'arrow expanded' : 'arrow'} onClick={handleToggle} />
-                </div>
+                </div> */}
                 <div className="forecast-section">
                     <Card data={data2} fahrenheit={fahrenheit} toFahrenheit={toFahrenheit} toCelcius={toCelcius} />
                 </div>
