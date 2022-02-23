@@ -1,0 +1,53 @@
+.weather-card-wrapper {
+    position: relative;
+    top: 100px;
+    width: 65vw;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-card {
+    position: relative;
+    width: 175px;
+    height: 250px;
+    background-color: rgba(88, 88, 88, 0.9);
+    border-radius: 1rem;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.today {
+    background-color: rgba(138, 138, 138, 0.85);
+}
+
+.weather-card img {
+    position: relative;
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0px 0px 7px #c2c2c2);
+}
+
+.wi-fw {
+    width: 4em;
+}
+
+.day {
+    position: relative;
+    top: 5px;
+}
+
+.date {
+    position: relative;
+}
+
+.temperature {
+    position: absolute;
+    bottom: 5px;
+    color: #dbdbdb;
+}

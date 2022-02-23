@@ -1,0 +1,28 @@
+.forecast {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #282c34;
+}
+
+.location-name {
+    position: absolute;
+    top: -90px;
+    font-size: 2em;
+}
+
+.trapezoid {
+    position: relative;
+    top: 80px;
+	border-top: 100px solid rgb(0, 26, 255);
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 0;
+	width: 750px;
+}
