@@ -12,13 +12,13 @@ function App() {
   
   
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch('/express_backend')
       .then((res) => res.json())
       .then((data) => setData(data.express))
       .catch((err) => console.log(err));
     console.log(data);
-  }, []) 
+  }, [])  */
 
 
   useEffect(() => {
