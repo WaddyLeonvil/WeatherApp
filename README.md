@@ -2,6 +2,8 @@
 
 This app uses React and Express to utilize weather and geolocation/geosearch APIs to display weather data, including a 5-day forecast, for the location the user is currently in, as well as locations that they can search up.
 
+[You can access the app here](waddy-leonvil-weather-app.herokuapp.com)
+
 ## Available Scripts
 
 In the project directory, you can run:
