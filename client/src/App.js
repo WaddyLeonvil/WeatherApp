@@ -7,19 +7,6 @@ function App() {
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
   const [data, setData] = useState();
-  const [option, setOption] = useState('today');
-
-  
-  
-
-  /* useEffect(() => {
-    fetch('/express_backend')
-      .then((res) => res.json())
-      .then((data) => setData(data.express))
-      .catch((err) => console.log(err));
-    console.log(data);
-  }, [])  */
-
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -41,8 +28,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          {option === '5day' && <Forecast lat={lat} lon={lon} />}
-          {option === 'today' && <Weather lat={lat} lon={lon} setLat={setLat} setLon={setLon} />}
+          <Weather lat={lat} lon={lon} setLat={setLat} setLon={setLon} />
         </header>
       </div>
     );

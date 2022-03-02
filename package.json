@@ -41,6 +41,7 @@
     "atob": "^2.1.2",
     "autoprefixer": "^10.4.2",
     "axe-core": "^4.3.5",
+    "axios": "^0.26.0",
     "axobject-query": "^2.2.0",
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
